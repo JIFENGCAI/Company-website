@@ -161,6 +161,23 @@ footer{padding:50px 7vw;border-top:1px solid var(--cream-mid);display:flex;justi
 .footer-sep{color:var(--cream-dark);font-size:10px}
 .flogo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;letter-spacing:.25em;text-transform:uppercase}
 footer span{font-size:11px;color:var(--ink-faint);letter-spacing:.06em}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1001}
+.hamburger span{display:block;width:22px;height:1.5px;background:#fff;transition:.25s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,9,8,.97);z-index:1000;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:rgba(245,242,236,.8);text-decoration:none;letter-spacing:.1em;transition:.2s}
+.mobile-menu a:hover{color:#b8956a}
+.mobile-menu .nav-cta{font-family:'Inter',sans-serif;font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;border:1px solid rgba(184,149,106,.5);padding:12px 32px;color:#f5f2ec;margin-top:8px}
+.mobile-menu-flags{display:flex;gap:14px;margin-top:16px}
+@media(max-width:900px){
+  .hamburger{display:flex}
+  .navlinks a:not(.nav-cta):not(#btn-en):not(#btn-fr){display:none}
+  .nav-cta{display:none}
+  .lang-switch{display:none}
+}
 /* ── TABLET (≤900px) ── */
 @media(max-width:900px){
   .nav{padding:16px 28px}
@@ -320,6 +337,9 @@ footer span{font-size:11px;color:var(--ink-faint);letter-spacing:.06em}
 <body>
 
 <nav class="nav">
+   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <a class="nav-logo" href="#">Harveston</a>
   <div class="navlinks">
     <a href="#products" data-i18n="nav_products">Products</a>
@@ -1946,7 +1966,29 @@ function setLang(lang) {
   if(pref==='fr')setLang('fr');
 })();
 </script>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#products" onclick="toggleMenu()" data-i18n="nav_products">Products</a>
+  <a href="#custom" onclick="toggleMenu()" data-i18n="nav_custom">Customisation</a>
+  <a href="sustainable.html" data-i18n="nav_eco">Sustainable</a>
+  <a href="about.html" data-i18n="nav_about">About</a>
+  <a href="#quote" class="nav-cta" onclick="toggleMenu()" data-i18n="nav_quote">Get a Quote</a>
+  <div class="mobile-menu-flags">
+    <button class="lang-btn" onclick="setLang('en');toggleMenu()" aria-label="English">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="28" height="19"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="13"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>
+    </button>
+    <button class="lang-btn" onclick="setLang('fr');toggleMenu()" aria-label="Français">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="28" height="19"><rect width="20" height="40" fill="#002395"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#ED2939"/></svg>
+    </button>
+  </div>
+</div>
 
+<script>
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobile-menu').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobile-menu').classList.contains('open') ? 'hidden' : '';
+}
+</script>
 </main>
 
 <!-- ══ COOKIE BANNER ══ -->
