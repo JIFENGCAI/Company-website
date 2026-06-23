@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — Harveston Packaging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f5f2ec;
+  --cream-mid:#ede9e0;
+  --cream-dark:#e2ddd3;
+  --ink:#1a1814;
+  --ink-mid:#4a4640;
+  --ink-faint:#8a8680;
+  --gold:#b8956a;
+  --gold-lt:#d4b896;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(8,8,8,.58);backdrop-filter:blur(22px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;letter-spacing:.28em;color:#fff;text-transform:uppercase;text-decoration:none}
+.navlinks{display:flex;align-items:center}
+.navlinks a{color:rgba(255,255,255,.72);text-decoration:none;padding:8px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;transition:.2s}
+.navlinks a:hover,.navlinks a.nav-active{color:#fff}
+.nav-cta{border:1px solid rgba(255,255,255,.45);margin-left:8px;color:#fff !important}
+.nav-cta:hover{background:rgba(255,255,255,.1) !important}
+
+/* HERO */
+.ab-hero{min-height:100vh;background:var(--ink);padding:140px 7vw 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ab-eye{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:24px}
+.ab-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,76px);font-weight:300;line-height:.97;color:#fff;margin-bottom:28px}
+.ab-h1 em{font-style:italic;color:var(--gold)}
+.ab-hero-p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.85;max-width:400px}
+.ab-stats{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.05)}
+.ab-stat{background:var(--ink);padding:32px 36px;border-left:2px solid transparent;transition:.2s}
+.ab-stat.hi{border-left-color:var(--gold)}
+.ab-stat-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:8px}
+.ab-stat-l{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+
+/* SHARED SECTION STYLES */
+.ab-sec{padding:90px 7vw}
+.ab-sec-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.ab-sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;line-height:1.05;margin-bottom:24px}
+.ab-sec-h em{font-style:italic;color:var(--gold)}
+.ab-sec-p{font-size:14px;color:#6a6660;line-height:1.85;margin-bottom:18px}
+.ab-2col{display:grid;grid-template-columns:320px 1fr;gap:80px}
+.ab-2col-eq{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.ab-divider{border:none;border-top:1px solid var(--cream-dark);margin:0}
+
+/* WHO WE ARE */
+.ab-who{padding:90px 7vw;border-bottom:1px solid var(--cream-dark)}
+.ab-pull{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;color:#4a4640;line-height:1.5;border-left:2px solid var(--gold);padding-left:24px;margin-top:36px}
+.ab-pull em{color:var(--gold);font-style:normal}
+
+/* DESIGN STRENGTH */
+.ab-design{background:var(--ink);padding:90px 7vw}
+.ab-design-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.ab-design-h{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;color:#fff;line-height:1.05}
+.ab-design-h em{font-style:italic;color:var(--gold)}
+.ab-design-p{font-size:14px;color:rgba(255,255,255,.4);line-height:1.85}
+.ab-dcaps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.ab-dcap{background:var(--ink);padding:36px 24px;border-top:2px solid var(--gold)}
+.ab-dcap-t{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.ab-dcap-p{font-size:12px;color:rgba(255,255,255,.35);line-height:1.75}
+
+/* HOW WE WORK */
+.ab-process{padding:90px 7vw;border-bottom:1px solid var(--cream-dark)}
+.ab-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--cream-dark);margin-top:56px}
+.ab-step{background:var(--cream);padding:32px 22px}
+.ab-step-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--cream-dark);line-height:1;margin-bottom:16px}
+.ab-step-t{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.ab-step-p{font-size:11px;color:var(--ink-faint);line-height:1.65;margin-bottom:14px}
+.ab-step-badge{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,149,106,.3);padding:3px 9px;display:inline-block}
+
+/* GUARANTEES */
+.ab-guar{background:#f0ece4;padding:90px 7vw;border-bottom:1px solid var(--cream-dark)}
+.ab-guar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--cream-dark);margin-top:56px}
+.ab-guar-card{background:#fff;padding:36px 28px}
+.ab-guar-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:10px}
+.ab-guar-t{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.ab-guar-p{font-size:12px;color:var(--ink-faint);line-height:1.75}
+
+/* TEAM */
+.ab-team{padding:90px 7vw;border-bottom:1px solid var(--cream-dark)}
+.ab-team-body{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--cream-dark);margin-top:56px}
+/* image side */
+.ab-team-img{background:var(--cream-mid);min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.ab-team-img-placeholder{text-align:center}
+.ab-team-img-icon{font-size:32px;color:var(--cream-dark);margin-bottom:14px}
+.ab-team-img-hint{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dark)}
+.ab-team-img-corner{position:absolute;bottom:24px;left:24px;background:rgba(26,24,20,.65);padding:12px 18px;backdrop-filter:blur(6px)}
+.ab-team-img-corner-l{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.ab-team-img-corner-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:#fff;margin-top:3px}
+/* capabilities side */
+.ab-team-caps{background:#fff;padding:48px 44px;display:flex;flex-direction:column}
+.ab-team-intro{font-size:14px;color:#6a6660;line-height:1.85;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--cream-mid)}
+.ab-cap{display:grid;grid-template-columns:36px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--cream-mid)}
+.ab-cap:last-child{border-bottom:none;padding-bottom:0}
+.ab-cap-n{font-family:'Cormorant Garamond',serif;font-size:13px;color:rgba(184,149,106,.55);padding-top:1px;letter-spacing:.04em}
+.ab-cap-t{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+.ab-cap-p{font-size:12px;color:var(--ink-faint);line-height:1.75}
+
+/* CTA */
+.ab-cta{background:var(--ink);padding:90px 7vw;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ab-cta-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,52px);font-weight:300;color:#fff;line-height:1.05;margin-bottom:16px}
+.ab-cta-h em{font-style:italic;color:var(--gold)}
+.ab-cta-p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.8}
+.ab-cta-btns{display:flex;flex-direction:column;gap:12px;align-items:flex-start;justify-content:center}
+.ab-btn-g{display:inline-block;padding:16px 32px;background:var(--gold);color:#fff;font-size:10px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:.2s}
+.ab-btn-g:hover{background:#a07d58}
+.ab-btn-o{display:inline-block;padding:16px 32px;border:1px solid rgba(255,255,255,.3);color:#fff;font-size:10px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:.2s}
+.ab-btn-o:hover{background:rgba(255,255,255,.06)}
+
+footer{background:#0d0d0a;padding:32px 60px;display:flex;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">Harveston</a>
+  <div class="navlinks">
+    <a href="index.html#products">Products</a>
+    <a href="index.html#custom">Customisation</a>
+    <a href="sustainable.html">Sustainable</a>
+    <a href="#" class="nav-active">About</a>
+    <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ab-hero">
+  <div>
+    <div class="ab-eye">About Harveston</div>
+    <h1 class="ab-h1">Packaging<br>designed to<br><em>perform.</em></h1>
+    <p class="ab-hero-p">We are a packaging design and manufacturing partner serving brands across Europe and Asia. We specialise in making packaging that looks exceptional, ships efficiently, and costs less than you expect.</p>
+  </div>
+  <div class="ab-stats">
+    <div class="ab-stat hi">
+      <div class="ab-stat-n">500+</div>
+      <div class="ab-stat-l">Brands served worldwide</div>
+    </div>
+    <div class="ab-stat">
+      <div class="ab-stat-n">12</div>
+      <div class="ab-stat-l">Years of packaging expertise</div>
+    </div>
+    <div class="ab-stat">
+      <div class="ab-stat-n">48h</div>
+      <div class="ab-stat-l">From brief to first design concept</div>
+    </div>
+    <div class="ab-stat">
+      <div class="ab-stat-n">98%</div>
+      <div class="ab-stat-l">Client satisfaction rate</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="ab-who">
+  <div class="ab-2col">
+    <div>
+      <div class="ab-sec-label">Who we are</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:90px;font-weight:300;color:var(--cream-dark);line-height:1">01</div>
+    </div>
+    <div>
+      <h2 class="ab-sec-h">A design-first<br><em>packaging studio</em></h2>
+      <p class="ab-sec-p">Harveston was built on a single conviction: that great packaging is a design problem before it is a manufacturing problem. We assemble briefs, question assumptions, sketch structures and refine finishes before a single board is cut.</p>
+      <p class="ab-sec-p">Our team combines structural engineers, brand designers and production specialists — working together from the first conversation to the final delivery. This integration is what allows us to move fast, iterate without waste, and produce work that stands out.</p>
+      <p class="ab-sec-p">We work with brands at every stage — from founders launching their first product to established names rethinking a legacy range. The common thread is ambition: clients who want packaging that does more than contain.</p>
+      <div class="ab-pull">"We don't produce packaging.<br>We design it — then <em>produce it.</em>"</div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN STRENGTH -->
+<section class="ab-design">
+  <div class="ab-design-top">
+    <div>
+      <div class="ab-sec-label" style="color:rgba(184,149,106,.7)">Our design capability</div>
+      <h2 class="ab-design-h">Where our <em>strength</em><br>actually lies</h2>
+    </div>
+    <p class="ab-design-p">Most packaging suppliers are factories with a catalogue. We are designers with a factory. That difference shapes everything — how we interpret your brief, how we solve structural problems, and how we make your brand look better than it did before.</p>
+  </div>
+  <div class="ab-dcaps">
+    <div class="ab-dcap">
+      <div class="ab-dcap-t">Brand-led design</div>
+      <div class="ab-dcap-p">We read your brand before we pick a material. Every structural and finish decision serves the brand identity — not the other way around.</div>
+    </div>
+    <div class="ab-dcap">
+      <div class="ab-dcap-t">Structural engineering</div>
+      <div class="ab-dcap-p">Our structural team designs from first principles. Dielines, wall geometry and insert systems are engineered in-house — not adapted from standard templates.</div>
+    </div>
+    <div class="ab-dcap">
+      <div class="ab-dcap-t">Finish expertise</div>
+      <div class="ab-dcap-p">Foil, emboss, soft touch, spot UV, deboss — we know which finish earns its cost and which is decorative noise. We advise, not upsell.</div>
+    </div>
+    <div class="ab-dcap">
+      <div class="ab-dcap-t">100% design refund</div>
+      <div class="ab-dcap-p">If you are not satisfied with the first round of concepts, we refund the design fee in full. No conditions. It keeps us focused on getting it right.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="ab-process">
+  <div class="ab-2col-eq">
+    <div>
+      <div class="ab-sec-label">How we work</div>
+      <h2 class="ab-sec-h">A process built<br>for <em>clarity</em></h2>
+    </div>
+    <p style="font-size:14px;color:#6a6660;line-height:1.85">We have designed our workflow to eliminate the ambiguity that makes packaging projects slow and expensive. Every stage has a clear deliverable and a clear decision point.</p>
+  </div>
+  <div class="ab-steps">
+    <div class="ab-step">
+      <div class="ab-step-n">01</div>
+      <div class="ab-step-t">Brief</div>
+      <div class="ab-step-p">We collect your brief, brand assets and product specs. A dedicated account manager responds within 2 hours.</div>
+      <div class="ab-step-badge">2h response</div>
+    </div>
+    <div class="ab-step">
+      <div class="ab-step-n">02</div>
+      <div class="ab-step-t">Proposal</div>
+      <div class="ab-step-p">A full proposal with materials, structure, finishes, MOQ and unit pricing — tailored to your brief.</div>
+      <div class="ab-step-badge">Within 24h</div>
+    </div>
+    <div class="ab-step">
+      <div class="ab-step-n">03</div>
+      <div class="ab-step-t">Design</div>
+      <div class="ab-step-p">Structural dieline and graphic design presented together. Design refund guarantee applies.</div>
+      <div class="ab-step-badge">3–5 days</div>
+    </div>
+    <div class="ab-step">
+      <div class="ab-step-n">04</div>
+      <div class="ab-step-t">Sample</div>
+      <div class="ab-step-p">A physical sample produced and shipped for your approval before any production run begins.</div>
+      <div class="ab-step-badge">7 days</div>
+    </div>
+    <div class="ab-step">
+      <div class="ab-step-n">05</div>
+      <div class="ab-step-t">Production</div>
+      <div class="ab-step-p">Full production with quality control at every stage. Global freight with tracking and export documentation.</div>
+      <div class="ab-step-badge">MOQ 200</div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="ab-guar">
+  <div class="ab-2col-eq">
+    <div>
+      <div class="ab-sec-label">Why clients trust us</div>
+      <h2 class="ab-sec-h">Commitments we<br><em>stand behind</em></h2>
+    </div>
+    <p style="font-size:14px;color:#6a6660;line-height:1.85">These are not aspirations. They are operational standards applied to every project, every client, every order.</p>
+  </div>
+  <div class="ab-guar-grid">
+    <div class="ab-guar-card">
+      <div class="ab-guar-n">100%</div>
+      <div class="ab-guar-t">Design refund guarantee</div>
+      <div class="ab-guar-p">Not satisfied with the first round of concepts? Full refund of the design fee — no questions, no conditions.</div>
+    </div>
+    <div class="ab-guar-card">
+      <div class="ab-guar-n">2h</div>
+      <div class="ab-guar-t">First response</div>
+      <div class="ab-guar-p">Every enquiry acknowledged within 2 hours during business hours, assigned to a named account manager.</div>
+    </div>
+    <div class="ab-guar-card">
+      <div class="ab-guar-n">24h</div>
+      <div class="ab-guar-t">Full proposal turnaround</div>
+      <div class="ab-guar-p">A complete tailored proposal — materials, pricing, MOQ and lead time — delivered within 24 hours of your brief.</div>
+    </div>
+    <div class="ab-guar-card">
+      <div class="ab-guar-n">7d</div>
+      <div class="ab-guar-t">Sample turnaround</div>
+      <div class="ab-guar-p">Physical samples produced and dispatched within 7 days of design sign-off. See and feel it before committing.</div>
+    </div>
+    <div class="ab-guar-card">
+      <div class="ab-guar-n">200</div>
+      <div class="ab-guar-t">Minimum order quantity</div>
+      <div class="ab-guar-p">MOQ starts at 200 units — accessible for growing brands without compromising on finish or material quality.</div>
+    </div>
+    <div class="ab-guar-card">
+      <div class="ab-guar-n">FSC</div>
+      <div class="ab-guar-t">Certified materials</div>
+      <div class="ab-guar-p">All paper and board from FSC-certified forests. Chain-of-custody documentation available on request.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="ab-team">
+  <div class="ab-2col-eq">
+    <div>
+      <div class="ab-sec-label">The team</div>
+      <h2 class="ab-sec-h">Built to take your project<br>from <em>brief to shelf.</em></h2>
+    </div>
+    <p style="font-size:14px;color:#6a6660;line-height:1.85">Our team brings together four areas of expertise under one roof — so your project never gets handed off between agencies, suppliers and factories.</p>
+  </div>
+  <div class="ab-team-body">
+    <!-- image placeholder -->
+    <div class="ab-team-img">
+      <!-- Place your team photo at assets/team_photo.jpg -->
+      <img src="assets/team_photo.jpg" alt="Harveston Team" style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0">
+      <div class="ab-team-img-corner">
+        <div class="ab-team-img-corner-l">Harveston team</div>
+        <div class="ab-team-img-corner-n">Paris · France</div>
+      </div>
+    </div>
+    <!-- capabilities -->
+    <div class="ab-team-caps">
+      <p class="ab-team-intro">Our team brings together four areas of expertise under one roof — so your project never gets handed off between agencies, suppliers and factories.</p>
+      <div class="ab-cap">
+        <div class="ab-cap-n">01</div>
+        <div>
+          <div class="ab-cap-t">Brand & Graphic Design</div>
+          <div class="ab-cap-p">We translate brand identity into packaging — typography, colour, illustration, foil artwork and press-ready files. Every visual decision is made with print production in mind.</div>
+        </div>
+      </div>
+      <div class="ab-cap">
+        <div class="ab-cap-n">02</div>
+        <div>
+          <div class="ab-cap-t">Structural Engineering</div>
+          <div class="ab-cap-p">Dielines, wall geometry, insert systems and material selection — engineered from first principles, optimised for strength, cost and sustainability.</div>
+        </div>
+      </div>
+      <div class="ab-cap">
+        <div class="ab-cap-n">03</div>
+        <div>
+          <div class="ab-cap-t">Production & Quality Control</div>
+          <div class="ab-cap-p">End-to-end production management with quality inspection at every stage. Sample approval before any run. Full export documentation and global freight coordination.</div>
+        </div>
+      </div>
+      <div class="ab-cap">
+        <div class="ab-cap-n">04</div>
+        <div>
+          <div class="ab-cap-t">Sustainability Advisory</div>
+          <div class="ab-cap-p">Material substitution, structural lightweighting and end-of-life design embedded into every project — not offered as an add-on. We find the savings without compromising the brief.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ab-cta">
+  <div>
+    <h2 class="ab-cta-h">Ready to work<br>with us?</h2>
+    <p class="ab-cta-p">Share your brief and we will respond within 2 hours with a named account manager and a clear path forward.</p>
+  </div>
+  <div class="ab-cta-btns">
+    <a class="ab-btn-g" href="index.html#quote">Get a Quote →</a>
+    <a class="ab-btn-o" href="index.html#products">View our products</a>
+  </div>
+</section>
+
+<footer>
+  <span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:18px;letter-spacing:.28em;color:rgba(255,255,255,.25);text-transform:uppercase">Harveston</span>
+  <span style="font-size:10px;color:rgba(255,255,255,.18);letter-spacing:.1em">© 2025 Harveston Holdings. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

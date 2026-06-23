@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sustainability — Harveston Packaging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#f5f2ec;
+  --cream-mid:#ede9e0;
+  --cream-dark:#e2ddd3;
+  --ink:#1a1814;
+  --ink-mid:#4a4640;
+  --ink-faint:#8a8680;
+  --gold:#b8956a;
+  --gold-lt:#d4b896;
+}
+/* greens */
+:root{
+  --forest:#2d4a2d;
+  --forest-mid:#3d5c3a;
+  --sage:#6b8f5e;
+  --sage-lt:#8aab7a;
+  --moss:#4a6741;
+  --leaf-cream:#f0f4ed;
+  --leaf-mid:#e4ede0;
+  --leaf-dark:#d0deca;
+}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* NAV — identical to main site */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(8,8,8,.58);backdrop-filter:blur(22px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:22px;letter-spacing:.28em;color:#fff;text-transform:uppercase;text-decoration:none}
+.navlinks{display:flex;align-items:center}
+.navlinks a{color:rgba(255,255,255,.72);text-decoration:none;padding:8px 16px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;transition:.2s}
+.navlinks a:hover,.navlinks a.nav-active{color:#fff}
+.nav-cta{border:1px solid rgba(255,255,255,.45);margin-left:8px;color:#fff !important}
+.nav-cta:hover{background:rgba(255,255,255,.1) !important}
+
+/* HERO */
+.s-hero{min-height:100vh;background:var(--forest);padding:140px 7vw 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.s-eye{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:24px}
+.s-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,76px);font-weight:300;line-height:.95;color:#fff;margin-bottom:28px}
+.s-h1 em{font-style:italic;color:#a8c89a}
+.s-hero-p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.85;max-width:420px;margin-bottom:40px}
+.s-hero-cta{display:inline-block;padding:13px 28px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:10px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:.2s}
+.s-hero-cta:hover{background:rgba(255,255,255,.08)}
+.s-hero-img-wrap{position:relative}
+.s-hero-img{width:100%;max-width:460px;display:block;margin:0 auto}
+.s-hero-badge{position:absolute;bottom:24px;left:24px;background:rgba(45,74,45,.85);border:1px solid rgba(168,200,154,.25);padding:18px 22px;backdrop-filter:blur(8px)}
+.s-hero-badge-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#a8c89a;line-height:1}
+.s-hero-badge-l{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px}
+
+/* STATS ROW */
+.s-stats{background:var(--forest-mid);display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.s-stat{padding:48px 40px;border-right:1px solid rgba(255,255,255,.06)}
+.s-stat:last-child{border-right:none}
+.s-stat-n{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:#a8c89a;line-height:1;margin-bottom:10px}
+.s-stat-l{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.38);line-height:1.6}
+
+/* SECTIONS shared */
+.s-sec{padding:90px 7vw}
+.s-sec-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
+.s-sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.2vw,46px);font-weight:300;line-height:1.05;margin-bottom:24px;color:var(--forest)}
+.s-sec-h em{font-style:italic;color:var(--sage)}
+.s-sec-p{font-size:14px;color:#5a6658;line-height:1.85}
+
+/* PHILOSOPHY — two col */
+.s-philosophy{padding:90px 7vw;background:var(--leaf-cream);border-bottom:1px solid var(--leaf-dark)}
+.s-phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.s-phil-left .s-sec-h{color:var(--forest)}
+.s-phil-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--leaf-dark);margin-top:40px}
+.s-phil-cell{background:var(--leaf-cream);padding:28px 24px}
+.s-phil-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--sage);margin-bottom:10px;line-height:1}
+.s-phil-t{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);margin-bottom:7px}
+.s-phil-p{font-size:12px;color:#6a7a68;line-height:1.7}
+
+/* PHOTO SECTION — full bleed image + text */
+.s-photo{display:grid;grid-template-columns:1fr 1fr;min-height:580px}
+.s-photo-img{background:var(--forest);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.s-photo-img img{width:100%;height:100%;object-fit:contain;background:var(--forest);padding:60px}
+.s-photo-text{background:var(--forest);padding:80px 7vw 80px 60px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid rgba(255,255,255,.06)}
+.s-photo-eye{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(168,200,154,.6);margin-bottom:20px}
+.s-photo-h{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;color:#fff;line-height:1.05;margin-bottom:24px}
+.s-photo-h em{font-style:italic;color:#a8c89a}
+.s-photo-p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.85;margin-bottom:32px}
+.s-photo-tags{display:flex;flex-wrap:wrap;gap:8px}
+.s-photo-tag{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#a8c89a;border:1px solid rgba(168,200,154,.3);padding:6px 12px}
+
+/* METHODS */
+.s-methods-wrap{background:var(--forest);padding:90px 7vw}
+.s-methods-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:60px;align-items:end}
+.s-methods-h{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;color:#fff;line-height:1.05}
+.s-methods-h em{font-style:italic;color:#a8c89a}
+.s-methods-p{font-size:14px;color:rgba(255,255,255,.42);line-height:1.85}
+.s-methods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05)}
+.s-method{background:var(--forest);padding:36px 28px;border-top:2px solid rgba(168,200,154,.25)}
+.s-method.hi{border-top-color:#a8c89a}
+.s-method-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:rgba(255,255,255,.08);line-height:1;margin-bottom:16px}
+.s-method-t{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:10px}
+.s-method-p{font-size:13px;color:rgba(255,255,255,.38);line-height:1.75}
+.s-method-tag{display:inline-block;margin-top:14px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#a8c89a;border:1px solid rgba(168,200,154,.25);padding:4px 10px}
+
+/* COMMITMENTS */
+.s-commit{padding:90px 7vw;background:var(--cream);border-bottom:1px solid var(--cream-dark)}
+.s-commit-top{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:56px;align-items:end}
+.s-commit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--cream-dark)}
+.s-commit-card{background:#fff;padding:32px 26px}
+.s-commit-dot{width:8px;height:8px;background:var(--sage);margin-bottom:20px}
+.s-commit-t{font-size:12px;font-weight:500;color:var(--forest);margin-bottom:10px;letter-spacing:.04em}
+.s-commit-p{font-size:12px;color:#6a7a68;line-height:1.75}
+
+/* SAVINGS */
+.s-savings{padding:90px 7vw;background:var(--leaf-cream);border-bottom:1px solid var(--leaf-dark)}
+.s-savings-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.s-savings-list{display:flex;flex-direction:column;gap:18px;margin-top:28px}
+.s-saving-item{display:flex;gap:16px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid var(--leaf-dark)}
+.s-saving-item:last-child{border-bottom:none;padding-bottom:0}
+.s-saving-n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--sage);flex-shrink:0;width:52px;line-height:1;margin-top:1px}
+.s-saving-text{font-size:13px;color:#5a6658;line-height:1.7}
+.s-saving-text strong{display:block;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--forest);margin-bottom:4px}
+.s-stats-blocks{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--leaf-dark)}
+.s-sblock{background:var(--leaf-cream);padding:40px 28px}
+.s-sblock-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--sage);line-height:1;margin-bottom:8px}
+.s-sblock-l{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a78;line-height:1.5}
+
+/* CTA */
+.s-cta{background:var(--forest);padding:90px 7vw;text-align:center}
+.s-cta-h{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,58px);font-weight:300;color:#fff;margin-bottom:18px;line-height:1}
+.s-cta-h em{font-style:italic;color:#a8c89a}
+.s-cta-p{font-size:13px;color:rgba(255,255,255,.42);margin-bottom:40px;line-height:1.8;max-width:480px;margin-left:auto;margin-right:auto}
+.s-cta-btn{display:inline-block;padding:16px 40px;border:1px solid rgba(255,255,255,.38);color:#fff;font-size:10px;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;transition:.2s}
+.s-cta-btn:hover{background:rgba(255,255,255,.07)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">Harveston</a>
+  <div class="navlinks">
+    <a href="index.html#products">Products</a>
+    <a href="index.html#custom">Customisation</a>
+    <a href="#" class="nav-active">Sustainable</a>
+    <a href="about.html">About</a>
+    <a href="index.html#quote" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="s-hero">
+  <div>
+    <div class="s-eye">Sustainability</div>
+    <h1 class="s-h1">Less material.<br><em>More beauty.</em><br>Lower cost.</h1>
+    <p class="s-hero-p">We believe sustainability and luxury are not opposites. Through intelligent design, we reduce the materials in every package — without sacrificing the aesthetic or brand integrity our clients demand.</p>
+    <a class="s-hero-cta" href="index.html#quote">Request a sustainability audit →</a>
+  </div>
+  <div class="s-hero-img-wrap">
+    <img class="s-hero-img" src="assets/eco/sustainable_img_00.png" alt="100% Compostable Mailer Bag">
+    <div class="s-hero-badge">
+      <div class="s-hero-badge-n">100%</div>
+      <div class="s-hero-badge-l">Compostable material</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="s-stats">
+  <div class="s-stat"><div class="s-stat-n">−18%</div><div class="s-stat-l">Average material reduction per project</div></div>
+  <div class="s-stat"><div class="s-stat-n">−22%</div><div class="s-stat-l">Average unit cost reduction</div></div>
+  <div class="s-stat"><div class="s-stat-n">100%</div><div class="s-stat-l">FSC certified paper sources</div></div>
+  <div class="s-stat"><div class="s-stat-n">0</div><div class="s-stat-l">Single-use plastic inserts in rigid box line</div></div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="s-philosophy">
+  <div class="s-phil-grid">
+    <div class="s-phil-left">
+      <div class="s-sec-label">Our position</div>
+      <h2 class="s-sec-h">Sustainability through<br><em>design intelligence</em></h2>
+      <p class="s-sec-p">Most brands treat sustainability as a trade-off — choosing between looking premium and being responsible. We reject that premise. Every gram of material we remove from a package is both an environmental improvement and a direct cost saving for our client.</p>
+      <p class="s-sec-p" style="margin-top:16px">Our approach begins at the design stage. Before any material is selected, our structural team analyses the product's requirements — protection, presentation, shipping — and engineers the minimum viable structure that meets all three.</p>
+    </div>
+    <div>
+      <div class="s-phil-metrics">
+        <div class="s-phil-cell">
+          <div class="s-phil-n">−18%</div>
+          <div class="s-phil-t">Average material reduction</div>
+          <div class="s-phil-p">Achieved across client projects through structural redesign, without changing perceived quality.</div>
+        </div>
+        <div class="s-phil-cell">
+          <div class="s-phil-n">−22%</div>
+          <div class="s-phil-t">Average cost reduction</div>
+          <div class="s-phil-p">Material savings translate directly to unit cost — passed on in full to our clients.</div>
+        </div>
+        <div class="s-phil-cell">
+          <div class="s-phil-n">100%</div>
+          <div class="s-phil-t">FSC certified paper sources</div>
+          <div class="s-phil-p">All paper and cardboard sourced from certified sustainable forests, verified annually.</div>
+        </div>
+        <div class="s-phil-cell">
+          <div class="s-phil-n">3</div>
+          <div class="s-phil-t">Eco material lines</div>
+          <div class="s-phil-p">Compostable, recycled content and bioplastic options across our full catalogue.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO FEATURE — compostable mailer -->
+<div class="s-photo">
+  <div class="s-photo-img">
+    <img src="assets/eco/sustainable_img_00.png" alt="100% Compostable Mailer Bag" style="object-fit:contain;width:100%;height:100%;max-height:580px">
+  </div>
+  <div class="s-photo-text">
+    <div class="s-photo-eye">Featured product</div>
+    <h2 class="s-photo-h">100% <em>Compostable</em><br>Mailer Bag</h2>
+    <p class="s-photo-p">Our compostable mailer is made from PLA-based film certified to EN 13432 — it breaks down within 180 days in a home compost environment. The print is water-based. There is no plastic, no foil, no laminate that cannot be composted alongside it.</p>
+    <p class="s-photo-p" style="margin-top:-16px;margin-bottom:32px">Same impact, same branding capability, zero end-of-life compromise.</p>
+    <div class="s-photo-tags">
+      <span class="s-photo-tag">EN 13432 certified</span>
+      <span class="s-photo-tag">Home compostable</span>
+      <span class="s-photo-tag">Water-based ink</span>
+      <span class="s-photo-tag">Custom print</span>
+      <span class="s-photo-tag">MOQ 500 pcs</span>
+    </div>
+  </div>
+</div>
+
+<!-- DESIGN METHODS -->
+<section class="s-methods-wrap">
+  <div class="s-methods-top">
+    <div>
+      <div class="s-sec-label" style="color:rgba(168,200,154,.7)">How we do it</div>
+      <h2 class="s-methods-h">Design as the first<br><em>sustainability tool</em></h2>
+    </div>
+    <p class="s-methods-p">Sustainable packaging is not just about switching to kraft paper. It is about structural thinking — wall thickness, flute selection, glue placement, print coverage — each decision reducing waste without reducing impact.</p>
+  </div>
+  <div class="s-methods-grid">
+    <div class="s-method hi">
+      <div class="s-method-n">01</div>
+      <div class="s-method-t">Structural lightweighting</div>
+      <div class="s-method-p">We engineer wall thickness, board weight and internal geometry to use the minimum material that still delivers structural integrity and premium feel.</div>
+      <div class="s-method-tag">Avg. −15% board weight</div>
+    </div>
+    <div class="s-method hi">
+      <div class="s-method-n">02</div>
+      <div class="s-method-t">Print area optimisation</div>
+      <div class="s-method-p">Selective spot finishes create a luxury effect with a fraction of the material of full-coverage treatments — foil and UV only where they earn their place.</div>
+      <div class="s-method-tag">Targeted, not blanket</div>
+    </div>
+    <div class="s-method hi">
+      <div class="s-method-n">03</div>
+      <div class="s-method-t">Dieline rationalisation</div>
+      <div class="s-method-p">Our structural engineers review every dieline for nesting efficiency — maximising blanks per sheet, reducing offcut waste at source before production begins.</div>
+      <div class="s-method-tag">Up to −12% sheet waste</div>
+    </div>
+    <div class="s-method">
+      <div class="s-method-n">04</div>
+      <div class="s-method-t">Material substitution</div>
+      <div class="s-method-p">FSC-certified recycled board, water-based inks and compostable laminates — maintaining look and feel while removing virgin material from the supply chain.</div>
+      <div class="s-method-tag">Like-for-like alternatives</div>
+    </div>
+    <div class="s-method">
+      <div class="s-method-n">05</div>
+      <div class="s-method-t">Mono-material design</div>
+      <div class="s-method-p">Packaging made from a single material family is significantly easier to recycle. We design for end-of-life from the outset — avoiding composite structures that contaminate waste streams.</div>
+      <div class="s-method-tag">Recyclability by design</div>
+    </div>
+    <div class="s-method">
+      <div class="s-method-n">06</div>
+      <div class="s-method-t">Right-sizing</div>
+      <div class="s-method-p">We analyse product-to-pack ratios and recommend minimum viable dimensions — reducing material, shipping volume and carbon footprint simultaneously.</div>
+      <div class="s-method-tag">Less air, more product</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITMENTS -->
+<section class="s-commit">
+  <div class="s-commit-top">
+    <div>
+      <div class="s-sec-label">Our commitments</div>
+      <h2 class="s-sec-h">What we <em>stand behind</em></h2>
+    </div>
+    <p style="font-size:14px;color:#5a6658;line-height:1.85">These are not aspirations. They are standards already in place across our manufacturing and sourcing operations.</p>
+  </div>
+  <div class="s-commit-grid">
+    <div class="s-commit-card"><div class="s-commit-dot"></div><div class="s-commit-t">FSC-certified paper & board</div><div class="s-commit-p">All paper-based substrates sourced exclusively from FSC-certified forests. Chain-of-custody documentation available on request for every order.</div></div>
+    <div class="s-commit-card"><div class="s-commit-dot"></div><div class="s-commit-t">Water-based inks as standard</div><div class="s-commit-p">Solvent-free water-based inks used across all standard print runs. VOC emissions eliminated from our primary print process.</div></div>
+    <div class="s-commit-card"><div class="s-commit-dot"></div><div class="s-commit-t">Compostable laminate options</div><div class="s-commit-p">PLA-based compostable laminates available as a direct substitute for standard plastic films on folding cartons and pouches.</div></div>
+    <div class="s-commit-card"><div class="s-commit-dot"></div><div class="s-commit-t">Recycled content materials</div><div class="s-commit-p">Post-consumer recycled board available at 50%, 70% and 100% recycled content — with no visible quality difference at standard print weights.</div></div>
+    <div class="s-commit-card"><div class="s-commit-dot"></div><div class="s-commit-t">Zero single-use plastic inserts</div><div class="s-commit-p">We have eliminated single-use plastic tissue, filler and void-fill from our rigid box line. Paper and pulp alternatives used throughout.</div></div>
+    <div class="s-commit-card"><div class="s-commit-dot"></div><div class="s-commit-t">Carbon footprint reporting</div><div class="s-commit-p">On request, we provide a production carbon estimate for your packaging run — covering material, print and shipping — to support your own sustainability reporting.</div></div>
+  </div>
+</section>
+
+<!-- SAVINGS -->
+<section class="s-savings">
+  <div class="s-savings-grid">
+    <div>
+      <div class="s-sec-label">The business case</div>
+      <h2 class="s-sec-h">Sustainable design<br>saves you <em>money.</em></h2>
+      <p class="s-sec-p">Every material reduction is a cost reduction. Our structural design reviews consistently identify savings that more than offset any premium sustainable material choices.</p>
+      <div class="s-savings-list">
+        <div class="s-saving-item">
+          <div class="s-saving-n">−15%</div>
+          <div class="s-saving-text"><strong>Board weight reduction</strong>Lighter boards reduce per-unit material cost on rigid box projects without changing the premium feel.</div>
+        </div>
+        <div class="s-saving-item">
+          <div class="s-saving-n">−20%</div>
+          <div class="s-saving-text"><strong>Shipping volume savings</strong>Right-sized packaging reduces freight cost per pallet — a compounding saving across every production run.</div>
+        </div>
+        <div class="s-saving-item">
+          <div class="s-saving-n">−12%</div>
+          <div class="s-saving-text"><strong>Sheet waste reduction</strong>Dieline nesting improvements reduce substrate cost directly — per 1,000 units produced.</div>
+        </div>
+        <div class="s-saving-item">
+          <div class="s-saving-n">−35%</div>
+          <div class="s-saving-text"><strong>Finish cost reduction</strong>Selective spot foil and UV achieve the same premium effect at a fraction of full-coverage treatment costs.</div>
+        </div>
+      </div>
+      <a href="index.html#quote" style="display:inline-block;margin-top:36px;padding:14px 28px;background:var(--forest);color:#fff;font-size:10px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:.2s">Request a sustainability audit →</a>
+    </div>
+    <div class="s-stats-blocks">
+      <div class="s-sblock"><div class="s-sblock-n">−18%</div><div class="s-sblock-l">Average material reduction per project</div></div>
+      <div class="s-sblock"><div class="s-sblock-n">−22%</div><div class="s-sblock-l">Average unit cost reduction</div></div>
+      <div class="s-sblock"><div class="s-sblock-n">100%</div><div class="s-sblock-l">FSC certified paper sources</div></div>
+      <div class="s-sblock"><div class="s-sblock-n">0</div><div class="s-sblock-l">Single-use plastic inserts in rigid box line</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="s-cta">
+  <h2 class="s-cta-h">Ready to design<br><em>smarter packaging?</em></h2>
+  <p class="s-cta-p">Tell us about your product and we will show you where material and cost savings are hiding in your current packaging.</p>
+  <a class="s-cta-btn" href="index.html#quote">Get a quote →</a>
+</section>
+
+<footer style="background:#0f1a0f;padding:32px 60px;display:flex;justify-content:space-between;align-items:center">
+  <span style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:18px;letter-spacing:.28em;color:rgba(255,255,255,.3);text-transform:uppercase">Harveston</span>
+  <span style="font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.1em">© 2025 Harveston Holdings. All rights reserved.</span>
+</footer>
+
+</body>
+</html>
