@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title id="page-title">Product — Harveston</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#b8956a;--gold-lt:#d4b896;--cream:#f5f2ec;--ink:#1a1814;--ink-dark:#13110e}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);min-height:100vh}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:rgba(8,8,8,.55);backdrop-filter:blur(22px)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:20px;letter-spacing:.28em;color:var(--cream);text-transform:uppercase;text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-link{color:rgba(245,242,236,.6);text-decoration:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;transition:.2s}
+.nav-link:hover{color:var(--cream)}
+.nav-cta{border:1px solid rgba(245,242,236,.4);padding:7px 18px;color:var(--cream) !important}
+.nav-cta:hover{background:rgba(255,255,255,.08) !important}
+.lang-switch{display:flex;align-items:center;gap:6px}
+.lang-btn{background:none;border:none;cursor:pointer;padding:2px;line-height:0;border-radius:3px;opacity:1;transition:transform .15s;flex-shrink:0}
+.lang-btn:hover{transform:scale(1.12)}
+
+/* LAYOUT */
+.wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;padding-top:64px}
+.left{padding:64px 56px 56px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid rgba(245,242,236,.07)}
+.right{background:var(--ink-dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:calc(100vh - 64px)}
+
+/* LEFT CONTENT */
+.eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(245,242,236,.3);margin-bottom:40px}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(184,149,106,.3);padding:7px 14px;margin-bottom:28px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.badge-txt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;line-height:1.05;margin-bottom:18px;letter-spacing:-.01em;color:var(--cream)}
+h1 em{font-style:italic;color:var(--gold)}
+.subtitle{font-size:13px;color:rgba(245,242,236,.62);line-height:1.85;max-width:380px;margin-bottom:32px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.tag{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,242,236,.5);padding:4px 10px;border:1px solid rgba(245,242,236,.15)}
+.tag-gold{color:var(--gold);border-color:rgba(184,149,106,.35)}
+.cta-group{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.btn-gold{padding:13px 30px;background:var(--gold);color:#fff;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:var(--gold-lt)}
+.btn-outline{padding:13px 30px;background:transparent;color:var(--cream);font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(245,242,236,.45);cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--cream)}
+.divider{width:40px;height:1px;background:rgba(184,149,106,.3);margin-bottom:28px}
+.info-row{display:flex;gap:36px;flex-wrap:wrap;margin-bottom:48px}
+.info-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(245,242,236,.3);margin-bottom:5px}
+.info-value{font-size:13px;color:rgba(245,242,236,.82);letter-spacing:.01em}
+.info-value strong{color:var(--gold);font-weight:400}
+.footer-note{font-size:10px;color:rgba(245,242,236,.2);letter-spacing:.06em}
+
+/* RIGHT / IMAGE */
+.deco-ring{position:absolute;border-radius:50%;border:1px solid rgba(184,149,106,.07);top:50%;left:50%;transform:translate(-50%,-50%)}
+.img-frame{width:min(300px,45vw);height:min(300px,45vw);border:1px solid rgba(184,149,106,.2);display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.img-frame::before{content:'';position:absolute;inset:-8px;border:1px solid rgba(184,149,106,.08)}
+.img-frame img{width:85%;height:85%;object-fit:contain}
+.product-label{margin-top:28px;text-align:center;z-index:2;position:relative}
+.product-label-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--cream);margin-bottom:6px}
+.product-label-sector{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(184,149,106,.7)}
+
+/* NOT FOUND */
+.not-found{display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:40px}
+.not-found h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--cream);margin-bottom:12px}
+.not-found p{font-size:13px;color:rgba(245,242,236,.5);margin-bottom:24px}
+
+@media(max-width:700px){
+  nav{padding:16px 24px}
+  .wrap{grid-template-columns:1fr;padding-top:60px}
+  .left{padding:40px 24px 48px;order:2}
+  .right{min-height:55vw;order:1}
+  .img-frame{width:44vw;height:44vw}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="../index.html">Harveston</a>
+  <div class="nav-right">
+    <a href="../index.html#products" class="nav-link" data-i18n="nav_products">Products</a>
+    <a href="../index.html#quote" class="nav-link nav-cta" data-i18n="nav_quote">Get a Quote</a>
+    <div class="lang-switch">
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')" aria-label="English">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="22" height="15"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="13"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg>
+      </button>
+      <button class="lang-btn" id="btn-fr" onclick="setLang('fr')" aria-label="Français">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" width="22" height="15"><rect width="20" height="40" fill="#002395"/><rect x="20" width="20" height="40" fill="#fff"/><rect x="40" width="20" height="40" fill="#ED2939"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div id="app"></div>
+
+<script>
+const SECTOR_LABELS={food:'Food & Beverage',cosmetics:'Cosmetics & Beauty',pharma:'Pharmaceutical & Healthcare',pet:'Pet Care',fashion:'Fashion & Apparel',luxury:'Luxury Goods',ecom:'E-commerce & Retail',tobacco:'Tobacco & Vape'};
+const PRODUCTS_RAW=[
+  /* ── ALUMINUM ── */
+  {id:25,name:"Aluminum Screw-Top Jar",         sector:"food",     material:"Aluminum",           type:"Jar",            shape:"tin",    img:"assets/products/metal/product_25_aluminum_screw_top_jar.png",   desc:"Matte silver aluminum jar with precision screw cap. Available in multiple heights for dry goods, supplements, and premium ingredients."},
+  {id:26,name:"Aluminum Tea Tin",               sector:"food",     material:"Aluminum",           type:"Can",            shape:"tin",    img:"assets/products/metal/product_26_aluminum_tea_tin.png", desc:"Round aluminum tin with custom paper label wrap. Ideal for loose-leaf tea, botanicals, and artisan food gifting."},
+  {id:27,name:"Colored Aluminum Jar",           sector:"food",     material:"Aluminum",           type:"Jar",            shape:"tin",    img:"assets/products/metal/product_27_colored_aluminum_jar.png",      desc:"Anodized aluminum jar in vibrant lacquer finishes with calligraphy-embossed lid. Designed for premium tea, confectionery, and gift collections."},
+  {id:28,name:"Aluminum Food Tube",             sector:"food",     material:"Aluminum",           type:"Tube",           shape:"tube",   img:"assets/products/metal/product_28_aluminum_food_tube.png",  desc:"Printed aluminum squeeze tube for tomato paste, condiments, and culinary concentrates. Custom print with screw cap."},
+  {id:29,name:"Colored Aluminum Jar — Gold Cap",sector:"food",     material:"Aluminum",           type:"Jar",            shape:"tin",    img:"assets/products/metal/product_29_colored_aluminum_jar_gold_cap.png",   desc:"Matte anodized aluminum jar in red, green, and black with a premium gold push-on lid. Ideal for tea, coffee, and gourmet ingredients."},
+  {id:30,name:"Printed Aluminum Can — Coffee",  sector:"food",     material:"Aluminum",           type:"Can",            shape:"tin",    img:"assets/products/metal/product_30_printed_aluminum_can_coffee.png",  desc:"Wide-body aluminum can with full-wrap custom print and friction-fit lid. Shown here in a coffee bean illustration finish."},
+  {id:31,name:"Hammered Aluminum Jar",          sector:"food",     material:"Aluminum",           type:"Jar",            shape:"tin",    img:"assets/products/metal/product_31_hammered_aluminum_jar.png",  desc:"Hand-hammered textured aluminum jar with brushed steel lid. A tactile premium container for honey, spices, and artisan pantry goods."},
+  {id:32,name:"Aluminum Powder Jar",            sector:"food",     material:"Aluminum",           type:"Jar",            shape:"tin",    img:"assets/products/metal/product_32_aluminum_powder_jar.png",desc:"Wide-mouth aluminum screw-top jar for matcha, protein powder, and superfood blends. Available in matte black, yellow, and silver."},
+  {id:33,name:"Teal Aluminum Jar with Box",     sector:"luxury",   material:"Aluminum",           type:"Jar",            shape:"tin",    img:"assets/products/metal/product_33_teal_aluminum_jar_with_box.png",  desc:"Elegant teal matte aluminum jar with a gold knob lid, presented with a matching rigid gift box. Designed for premium tea and luxury gifting."},
+  /* ── GLASS ── */
+  {id:34,name:"Clear Glass Bottle",             sector:"food",     material:"Glass",              type:"Bottle",         shape:"bottle", img:"assets/products/food/product_34_clear_glass_bottle.png",  desc:"Frosted clear glass bottle with aluminium screw cap. Suitable for mineral water, sparkling beverages, juices, and premium soft drinks."},
+  {id:35,name:"Glass Mason Jar",                sector:"food",     material:"Glass",              type:"Jar",            shape:"bottle", img:"assets/products/food/product_35_glass_mason_jar.png",     desc:"Wide-mouth glass mason jar with metal screw lid. Ideal for preserves, pickles, sauces, and artisan food retail across multiple sizes."},
+  /* ── METAL ── */
+  {id:46,name:"Round Tin Box — Blue",           sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_46_round_tin_box_blue.png",         desc:"Large flat round tin with full-wrap printed lid. FDA and LFGB certified. Ideal for biscuits, shortbread, confectionery, and premium gourmet gifting."},
+  {id:47,name:"Round Tin Box — Classic",        sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_47_round_tin_box_classic.png",          desc:"Deep-sided round tin with scenic illustration lid in light blue. Perfect for cookies, tea collections, and seasonal gift hampers."},
+  {id:48,name:"Printed Metal Jar",              sector:"food",     material:"Metal",              type:"Jar",            shape:"tin",    img:"assets/products/metal/product_48_printed_metal_jar.png",          desc:"Tall cylindrical printed tin jar with push-on lid. Bold full-colour custom print for confectionery, pralines, and premium food retail."},
+  {id:51,name:"Square Floral Tin",              sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_51_square_floral_tin.png",  desc:"Square tin with gold rim and full-wrap floral print. Compact format for loose-leaf tea, small confectionery, and seasonal gifting."},
+  {id:52,name:"Round Art Tin — Painting Lid",   sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_52_round_art_tin_painting_lid.png",  desc:"Round flat tin with gold-edge trim and oil-painting illustration lid. Premium format for biscuits, chocolates, and artistic gift collections."},
+  {id:53,name:"Round Tin with Handle — Rabbit", sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_53_round_tin_with_handle_rabbit.png",  desc:"Tall round tin with rope carry handle and botanical rabbit illustration wrap. Ideal for cookies, biscuits, and luxury seasonal hamper gifting."},
+  {id:54,name:"Rectangular Tin with Handle",    sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_54_rectangular_tin_with_handle.png",  desc:"Red rectangular tin with fold-down carry handle and illustrated lid. Two-layer lunchbox-style format perfect for biscuits, mooncakes, and gift sets."},
+  {id:55,name:"Round Biscuit Tin — Love Series",sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_55_round_biscuit_tin_love_series.png",  desc:"Nested round tins with illustrated character lids and red and blush finish. Two-piece stacking set for cookies, confectionery, and festive packaging."},
+  {id:56,name:"Embossed Square Tin",            sector:"food",     material:"Metal",              type:"Can",            shape:"tin",    img:"assets/products/metal/product_56_embossed_square_tin.png",   desc:"Oversized square tin with deep-embossed patterned lid in red and gold. Bold luxury format for mooncakes, premium biscuits, and mid-autumn gifting."},
+  /* ── PLASTIC ── */
+  {id:1, name:"Food Plastic Bottle",            sector:"food",     material:"Plastic",            type:"Bottle",         shape:"bottle", img:"assets/products/food/product_1_food_plastic_bottle.png", desc:"Clear plastic bottle for juices, beverages, and functional drinks. Food-safe with screw cap."},
+  {id:43,name:"Clear Plastic Bottle",           sector:"food",     material:"Plastic",            type:"Bottle",         shape:"bottle", img:"assets/products/food/product_43_clear_plastic_bottle.png",  desc:"Clear PET bottle with aluminium screw cap, available from 100ml to 550ml. Suitable for juices, water, sauces, and premium cold beverage brands."},
+  {id:36,name:"Plastic Macaron Pouch",          sector:"food",     material:"Plastic",            type:"Pouch",          shape:"pouch",  img:"assets/products/food/product_36_plastic_macaron_pouch.png",  desc:"Single-serve clear plastic pouch with printed header card and bow detail. Perfect for individual macarons, chocolates, and confectionery gifts."},
+  {id:37,name:"Plastic Stand-Up Pouch — Clear", sector:"food",     material:"Plastic",            type:"Pouch",          shape:"pouch",  img:"assets/products/food/product_37_plastic_stand_up_pouch_clear.png",   desc:"Transparent stand-up ziplock pouch with flat base. Available in multiple sizes for nuts, dried fruits, candy, and snack foods."},
+  {id:38,name:"Iridescent Gift Bag",            sector:"food",     material:"Plastic",            type:"Sachet",         shape:"bag",    img:"assets/products/food/product_38_iridescent_gift_bag.png", desc:"Holographic iridescent cello bag with twist-tie closure. Popular for candy, cookies, and artisan food gifting with a premium shimmer finish."},
+  {id:39,name:"Plastic Blister Tray — Fruit",   sector:"food",     material:"Plastic",            type:"Blister Pack",   shape:"tin",    img:"assets/products/food/product_39_plastic_blister_tray_fruit.png", desc:"Clear PET clamshell tray with fold-down lid and paper belly band. Combines blister and tray formats — ideal for fresh strawberries and premium produce."},
+  {id:40,name:"Clear Plastic Tray",             sector:"food",     material:"Plastic",            type:"Tray",           shape:"tin",    img:"assets/products/food/product_40_clear_plastic_tray.png",    desc:"Food-safe transparent PET tray in square, rectangular, and round formats with snap-on lid. Suitable for fresh produce, baked goods, and deli items."},
+  {id:41,name:"Frosted Stand-Up Pouch",         sector:"food",     material:"Plastic",            type:"Sachet",         shape:"pouch",  img:"assets/products/food/product_41_frosted_stand_up_pouch.png",  desc:"Matte frosted stand-up ziplock pouch with clear window panel. Available in 6 sizes for grains, supplements, seeds, and artisan food products."},
+  {id:42,name:"Clear Stand-Up Sachet",          sector:"food",     material:"Plastic",            type:"Sachet",         shape:"pouch",  img:"assets/products/food/product_42_clear_stand_up_sachet.png", desc:"Fully transparent stand-up ziplock sachet with flat bottom. High clarity for maximum product visibility across dry food, snack, and health categories."},
+  /* ── BIOPLASTIC ── */
+  {id:57,name:"Bioplastic Supplement Bottle — Pastel",  sector:"pharma",   material:"Bioplastic", type:"Bottle", shape:"bottle", img:"assets/products/pharma/product_57_bioplastic_supplement_bottle_pastel.png", desc:"Frosted bioplastic supplement bottle in pastel colour options — pink, purple, and green. Matte finish with matching screw cap, ideal for vitamins and nutraceuticals."},
+  {id:58,name:"Bioplastic Bottle — Citrus Gradient",    sector:"pharma",   material:"Bioplastic", type:"Bottle", shape:"bottle", img:"assets/products/pharma/product_58_bioplastic_bottle_citrus_gradient.png", desc:"Bioplastic bottle with vibrant orange-to-white gradient and matching lid. Eco-friendly format for vitamin C, supplements, and functional wellness products."},
+  {id:59,name:"Bioplastic Supplement Bottle — Pink",    sector:"pharma",   material:"Bioplastic", type:"Bottle", shape:"bottle", img:"assets/products/pharma/product_59_bioplastic_supplement_bottle_pink.png",  desc:"Glossy pink bioplastic bottle in three sizes with tamper-evident screw cap. Clean minimal format for pharmaceutical and premium health supplement brands."},
+  /* ── PAPER / CARDBOARD ── */
+  {id:44,name:"Printed Cardboard Box",          sector:"food",     material:"Paper / Cardboard",  type:"Folding Carton", shape:"box",    img:"assets/products/ecom/product_44_printed_cardboard_box.png",   desc:"Full-wrap printed folding carton and corrugated shipping box. Shown in fruit and confectionery branding — available in custom sizes and finishes."},
+  {id:45,name:"Kraft Paper Bag",                sector:"food",     material:"Paper / Cardboard",  type:"Mailer Box",     shape:"bag",    img:"assets/products/ecom/product_45_kraft_paper_bag.png",       desc:"Flat-bottom kraft paper bag in multiple sizes, suitable for takeaway food, bakery, grocery, and retail. No handles, food-safe inner coating available."},
+  {id:49,name:"Folding Carton — Tea Box",       sector:"food",     material:"Paper / Cardboard",  type:"Folding Carton", shape:"box",    img:"assets/products/ecom/product_49_folding_carton_tea_box.png",      desc:"Cube-format folding carton with botanical illustration wrap and matching sachet cards. Shown for tea — suitable for any premium food retail brand."},
+  {id:50,name:"Advent Calendar Rigid Box",      sector:"luxury",   material:"Paper / Cardboard",  type:"Display Box",    shape:"box",    img:"assets/products/ecom/product_50_advent_calendar_rigid_box.png", desc:"Pink rigid outer box with 12 numbered slide-out drawer compartments and gold foil numbering. Ideal for advent calendars, jewellery, and luxury gifting collections."},
+  /* ── OTHER MATERIALS / COMPOSTABLE ── */
+  {id:60,name:"Sugarcane Pulp Tray",       sector:"food", material:"Compostable Material",type:"Tray",       shape:"tin", img:"assets/products/ecom/product_60_sugarcane_pulp_tray.png",  desc:"Bagasse sugarcane pulp food tray with two-compartment and hinged-lid formats. Fully compostable, microwave-safe, and grease-resistant for hot food service."},
+  {id:61,name:"Sugarcane Box — Printed",   sector:"food", material:"Compostable Material",type:"Mailer Box", shape:"box", img:"assets/products/ecom/product_61_sugarcane_box_printed.png", desc:"Matte sugarcane fibre rigid box with custom wrap print in soft celadon green. Zero-waste format for premium food retail and artisan gifting."},
+  {id:62,name:"Corn Starch Bowl",          sector:"food", material:"Compostable Material",type:"Tray",       shape:"tin", img:"assets/products/ecom/product_62_corn_starch_bowl.png", desc:"Stacked corn starch bowls with snap-fit lids in multiple sizes. 100% compostable, suitable for soups, salads, and takeaway food service."},
+  {id:63,name:"Wheat Straw Jar",           sector:"food", material:"Compostable Material",type:"Sachet",     shape:"tin", img:"assets/products/ecom/product_63_wheat_straw_jar.png",      desc:"Wheat straw fibre rounded square jar in graduating sizes. Natural tan texture with tight-fitting lid — ideal for dry goods, spices, and zero-waste gifting."},
+  {id:64,name:"Sugarcane Clamshell Box",   sector:"food", material:"Compostable Material",type:"Mailer Box", shape:"box", img:"assets/products/ecom/product_64_sugarcane_clamshell_box.png",     desc:"Bagasse sugarcane clamshell takeaway box with secure snap closure. Embossed branding, microwave-safe and certified commercially compostable."},
+  {id:65,name:"Compostable Mailer Bag",    sector:"ecom", material:"Compostable Material",type:"Mailer Box", shape:"bag", img:"assets/products/ecom/product_65_compostable_mailer_bag.png",      desc:"100% compostable green mailer bag with self-seal adhesive strip. For e-commerce shipping with a certified zero-waste credential."},
+  /* ── CBD POUCHES ── */
+  {id:66,name:"CBD Printed Stand-Up Pouch",      sector:"tobacco", material:"Plastic", type:"Pouch",   shape:"pouch", img:"assets/products/tobacco_cbd/product_66_cbd_printed_stand_up_pouch.png",  desc:"Vibrant full-wrap printed stand-up pouch for CBD gummies, edibles, and cannabis products. Custom illustration with child-resistant zip and aroma seal."},
+  {id:67,name:"CBD Mylar Flat Pouch",             sector:"tobacco", material:"Plastic", type:"Sachet",  shape:"bag",   img:"assets/products/tobacco_cbd/product_67_cbd_mylar_flat_pouch.png",     desc:"Matte mylar flat pouch in multiple custom print designs. Odour-proof and moisture-barrier for cannabis flower, concentrates, and dry herb."},
+  {id:68,name:"CBD Black Barrier Pouch",          sector:"tobacco", material:"Plastic", type:"Pouch",   shape:"pouch", img:"assets/products/tobacco_cbd/product_68_cbd_black_barrier_pouch.png",     desc:"Matte black stand-up barrier pouch with clear window and resealable zip. Available in multiple sizes for tobacco, cannabis flower, and vape accessories."},
+  {id:69,name:"CBD Fresh Lock Pouch — Multi-Size",sector:"tobacco", material:"Plastic", type:"Pouch",   shape:"pouch", img:"assets/products/tobacco_cbd/product_69_cbd_fresh_lock_pouch_multi_size.png", desc:"High-gloss black stand-up pouch with clear window and Fresh Lock branding. Full size range from 3.5g to 1lb for cannabis and supplement brands."},
+  {id:70,name:"CBD Pouch — Mixed Format Set",     sector:"tobacco", material:"Plastic", type:"Pouch",   shape:"pouch", img:"assets/products/tobacco_cbd/product_70_cbd_pouch_mixed_format_set.png",     desc:"Mixed selection of CBD and cannabis pouches in stand-up, flat, and window formats. Shown with printed artwork finishes — ideal for multi-SKU brand launches."},
+  /* ── CBD GLASS JARS ── */
+  {id:71,name:"Child-Resistant Glass Jar — Ø57mm",      sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_71_child_resistant_glass_jar_57mm.png",       desc:"57mm diameter child-resistant glass jar with custom-printed label and multiple cap finishes. Suitable for cannabis concentrates, edibles, and premium CBD products."},
+  {id:72,name:"Child-Resistant Glass Jar — Ø75mm",      sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_72_child_resistant_glass_jar_75mm.png",       desc:"75mm diameter wide-mouth child-resistant glass jar. Large format for cannabis flower, buds, and bulk CBD retail. Clear body with full-wrap custom label."},
+  {id:73,name:"Child-Resistant Glass Jar — Ø60mm",      sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_73_child_resistant_glass_jar_60mm.png",       desc:"60mm child-resistant glass jar with clear body and custom sleeve label. Available with black, white, or coloured screw cap for concentrate and herb storage."},
+  {id:74,name:"Child-Resistant Glass Jar — Ø61mm Bamboo",sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_74_child_resistant_glass_jar_61mm_bamb.png", desc:"61mm child-resistant glass jar with natural bamboo lid. Premium sustainable finish for boutique cannabis, CBD oil, and wellness brands."},
+  /* ── CBD GLASS JARS — ARCH & DOME ── */
+  {id:75,name:"CR Glass Jar — Ø60mm Arch (1–5oz)",   sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_75_cr_glass_jar_60mm_arch_1_5oz.png", desc:"60mm Arch child-resistant glass jar in 1oz–5oz sizes (height 48–100.5mm). Available in all-black, all-white, or clear body with custom printed labels."},
+  {id:76,name:"CR Glass Jar — Ø55mm Arch (1–5oz)",   sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_76_cr_glass_jar_55mm_arch_1_5oz.png", desc:"55mm Arch child-resistant glass jar in 1oz–5oz sizes (height 55–106mm). Compact profile in black, white, or clear with full-wrap custom print."},
+  {id:77,name:"CR Glass Jar — Ø55mm Dome 3oz",       sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_77_cr_glass_jar_55mm_dome_3oz.png", desc:"55mm Dome child-resistant glass jar, 3oz / 56mm diameter / 72mm height. Distinctive dome-cap silhouette available in black or white cap with custom label."},
+  /* ── CR CONCENTRATE GLASS JARS ── */
+  {id:78,name:"CR Concentrate Jar — 5/7ML Round",         sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_78_cr_concentrate_jar_5_7ml_round.png",        desc:"5ML (Ø28mm, H23.4mm) and 7ML (Ø40.5mm, H20.8mm) clear glass concentrate jars with child-resistant screw cap. Compact format for cannabis wax, shatter, and extracts."},
+  {id:79,name:"CR Concentrate Jar — 5ML Triangle",        sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_79_cr_concentrate_jar_5ml_triangle.png",  desc:"5ML triangular child-resistant glass jar, Ø49mm, H22.5mm. Distinctive angular profile in clear body with matte black cap — a standout format for concentrate brands."},
+  {id:80,name:"CR Concentrate Jar — 9ML Hexagon",         sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_80_cr_concentrate_jar_9ml_hexagon.png",   desc:"9ML hexagonal child-resistant glass jar, Ø41mm, H25mm, 320/case. Flat-profile hex body for wax and rosin. Premium shelf presence with clear glass and CR threading."},
+  {id:81,name:"CR Concentrate Jar — 9/15ML Round",        sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_81_cr_concentrate_jar_9_15ml_round.png",          desc:"15ML (Ø60.5mm, H27mm) and 9ML (Ø46mm, H29mm) flat round CR jars in clear glass with white or black cap. High-volume extract storage for dispensary and wholesale."},
+  {id:82,name:"CR Concentrate Jar — Pillow Square 5/7/9ML",sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_82_cr_concentrate_jar_pillow_square_5_.png", desc:"Pillow Square CR jar in 5ML (Ø38mm), 7ML (Ø42.5mm), and 9ML (Ø46mm). Soft-edged square body in clear, grey, or white glass. 400/case."},
+  {id:83,name:"CR Concentrate Jar — Arch 5/7/9ML",        sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_83_cr_concentrate_jar_arch_5_7_9ml.png",    desc:"Arch-profile CR glass jar in 5/7/9ML with stepped arch body. Available in clear or all-black glass. 7ML: Ø42.5mm, H25.2mm — 9ML: Ø46mm, H28mm. 400/case."},
+  {id:84,name:"CR Concentrate Jar — Square 5/9ML",        sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_84_cr_concentrate_jar_square_5_9ml.png",  desc:"Square CR glass jar in 5ML (Ø36mm, H23mm) and 9ML (Ø42mm, H23mm). Flat square profile in clear glass with matte black or white cap. 504–320/case."},
+  {id:85,name:"CR Concentrate Jar — Round 5/9ML",         sector:"tobacco", material:"Glass", type:"Jar", shape:"bottle", img:"assets/products/tobacco_cbd/product_85_cr_concentrate_jar_round_5_9ml.png",   desc:"Classic round CR jar in 5ML (Ø35.2mm, H21.4mm) and 9ML (Ø45mm, H21mm). Clear glass body with push-and-turn black or white cap. 504–320/case."},
+  /* ── CBD DROPPER BOTTLES ── */
+  {id:86,name:"Amber Glass Dropper Bottle",  sector:"tobacco", material:"Glass", type:"Bottle", shape:"bottle", img:"assets/products/tobacco_cbd/product_86_amber_glass_dropper_bottle.png", desc:"Amber borosilicate glass dropper bottle in 6 sizes: ½oz–16oz (Ø25–74.6mm, H87.6–158mm). UV-protective amber glass for CBD oil, tinctures, and botanical extracts."},
+  {id:87,name:"Clear Glass Dropper Bottle",  sector:"tobacco", material:"Glass", type:"Bottle", shape:"bottle", img:"assets/products/tobacco_cbd/product_87_clear_glass_dropper_bottle.png",  desc:"Clear glass dropper bottle in 7 sizes: 5ML–100ML (Ø22–44.5mm, H50.2–112mm). Pharmaceutical-grade clear glass for CBD oil, aromatherapy, and premium tincture brands."},
+  /* ── COSMETICS & BEAUTY — PLASTIC ── */
+  {id:88,name:"PET Shampoo Pump Bottle 1000ml",        sector:"cosmetics", material:"Plastic", type:"Bottle", shape:"bottle", img:"assets/products/pet/product_88_pet_shampoo_pump_bottle_1000ml.png", desc:"PET flat-shoulder round-base pump bottle, 1000ml. Available in custom colours including amber and green. Suitable for shampoo, conditioner, and body wash. Custom logo and colour supported."},
+  {id:89,name:"Airless Pump Bottle — Skincare Set",    sector:"cosmetics", material:"Plastic", type:"Bottle", shape:"bottle", img:"assets/products/cosmetics/product_89_airless_pump_bottle_skincare_set.png",    desc:"Airless vacuum pump bottle in multiple sizes for lotion, serum, and toner. Frosted white finish with green accent label. Custom branding and size range available."},
+  {id:90,name:"Custom Cosmetics Bottle Set — Pink",    sector:"cosmetics", material:"Plastic", type:"Bottle", shape:"bottle", img:"assets/products/cosmetics/product_90_custom_cosmetics_bottle_set_pink.png",        desc:"Complete custom cosmetics packaging set in glossy pink — includes pump bottle, spray bottle, flat bottle, jar, dropper, and mini jar. Colour, mould, and label fully customisable."},
+  {id:91,name:"Amber & Forest Pump Bottle Duo",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_91_amber_forest_pump_bottle_duo.png",desc:"Amber and forest-green PET pump bottles in 300 ml and 500 ml."},
+  {id:92,name:"Ball-Cap Toner Bottle Set",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_92_ball_cap_toner_bottle_set.png",desc:"Sculptural toner bottles with oversized spherical caps."},
+  {id:93,name:"Amber Glass Dropper Bottle Set",sector:"cosmetics",material:"Glass",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_93_amber_glass_dropper_bottle_set.png",desc:"Amber glass dropper bottles with wood-grain caps in 5 sizes."},
+  {id:94,name:"Roller-Ball Serum Pump Bottle",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_94_roller_ball_serum_pump_bottle.png",desc:"Slim serum pump bottle with stainless steel roller-ball tip."},
+  {id:95,name:"Spring Rejuvenating Toner Duo",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_95_spring_rejuvenating_toner_duo.png",desc:"Clear Spring Rejuvenating Toner in lavender and pink, 400 ml each."},
+  {id:96,name:"Essential Oil Bottle Set — 4 Sizes",sector:"cosmetics",material:"Glass",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_96_essential_oil_bottle_set_4_sizes.png",desc:"Amber and olive glass essential oil bottles in 4 sizes."},
+  {id:97,name:"Cosmetic Squeeze Tube Set",sector:"cosmetics",material:"Plastic",type:"Tube",shape:"tube",img:"assets/products/cosmetics/product_97_cosmetic_squeeze_tube_set.png",desc:"White LDPE squeeze tubes in 13 sizes from 5 ml to 250 ml."},
+  {id:98,name:"Dome-Cap Skincare Bottle Set",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_98_dome_cap_skincare_bottle_set.png",desc:"Luxury white bottles with dome caps and gold collar ring."},
+  {id:99,name:"Cosmetic Cream Jar Collection",sector:"cosmetics",material:"Plastic",type:"Jar",shape:"bottle",img:"assets/products/cosmetics/product_99_cosmetic_cream_jar_collection.png",desc:"Cream jars in black, white, pink and sage green."},
+  {id:100,name:"Repair Cream Jar Duo",sector:"cosmetics",material:"Plastic",type:"Jar",shape:"bottle",img:"assets/products/cosmetics/product_100_repair_cream_jar_duo.png",desc:"Frosted glass base cream jars with orange gradient wrap label."},
+  {id:101,name:"Merci Damask Gift Box Set — Red",sector:"luxury",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/luxury/product_101_merci_damask_gift_box_set_red.png",desc:"Luxury rigid gift box in deep red damask print with silk bow ribbon."},
+  {id:102,name:"Toile de Jouy Gift Box — Navy",sector:"luxury",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/luxury/product_102_toile_de_jouy_gift_box_navy.png",desc:"Premium rigid gift box in navy toile de Jouy print."},
+  {id:103,name:"Merci Damask Gift Box Set — Olive",sector:"luxury",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/luxury/product_103_merci_damask_gift_box_set_olive.png",desc:"Luxury rigid gift box in olive damask print with botanical silk bow."},
+  {id:104,name:"Marble Texture Rigid Gift Box Set",sector:"luxury",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/luxury/product_104_marble_texture_rigid_gift_box_set.png",desc:"Cream marble-texture rigid gift boxes with natural raffia bow."},
+  {id:105,name:"Radiant Nourishing Essence Set",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_105_radiant_nourishing_essence_set.png",desc:"5-piece burgundy skincare set."},
+  {id:106,name:"Hydrating Gold-Cap Skincare Set",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_106_hydrating_gold_cap_skincare_set.png",desc:"5-piece white and gold skincare set."},
+  {id:107,name:"Amber Glass Jar Set — Bamboo Lid",sector:"cosmetics",material:"Glass",type:"Jar",shape:"bottle",img:"assets/products/cosmetics/product_107_amber_glass_jar_set_bamboo_lid.png",desc:"Amber glass jars with bamboo lids in 6 sizes."},
+  {id:108,name:"Black Glass Skincare Set — Silver Cap",sector:"cosmetics",material:"Glass",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_108_black_glass_skincare_set_silver_cap.png",desc:"Matte black glass bottles and jars with chrome silver caps."},
+  {id:109,name:"Amber Cylinder Bottle Set — 8 Sizes",sector:"cosmetics",material:"Glass",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_109_amber_cylinder_bottle_set_8_sizes.png",desc:"Amber glass cylinder bottles in 8 sizes."},
+  {id:110,name:"Lavender Skincare Gift Box Set",sector:"cosmetics",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/cosmetics/product_110_lavender_skincare_gift_box_set.png",desc:"Lavender magnetic rigid gift box with skincare set."},
+  {id:111,name:"White Skincare Routine Gift Box",sector:"cosmetics",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/cosmetics/product_111_white_skincare_routine_gift_box.png",desc:"Minimal white rigid gift box with skincare routine set."},
+  {id:112,name:"Clear Glass Perfume Bottle Duo",sector:"cosmetics",material:"Glass",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_112_clear_glass_perfume_bottle_duo.png",desc:"Clear glass eau de parfum bottles in 50 ml and 100 ml."},
+  {id:113,name:"Matte Black Folding Carton Set",sector:"cosmetics",material:"Paper / Cardboard",type:"Folding Carton",shape:"box",img:"assets/products/cosmetics/product_113_matte_black_folding_carton_set.png",desc:"5-piece matte black folding carton set with gold foil."},
+  {id:114,name:"Lavender Eye Cream Tube Set",sector:"cosmetics",material:"Plastic",type:"Tube",shape:"tube",img:"assets/products/cosmetics/product_114_lavender_eye_cream_tube_set.png",desc:"Soft-touch lavender LDPE tubes with 5 interchangeable tips."},
+  {id:115,name:"White & Gold Full Skincare Range",sector:"cosmetics",material:"Plastic",type:"Bottle",shape:"bottle",img:"assets/products/cosmetics/product_115_white_gold_full_skincare_range.png",desc:"10-piece white and gold skincare range."},
+  {id:116,name:"Furry Delights Dog Treat Pouch",sector:"pet",material:"Plastic",type:"Pouch",shape:"pouch",img:"assets/products/pet/product_116_furry_delights_dog_treat_pouch.png",desc:"Stand-up dog treat pouches in 5 colour-coded flavours."},
+  {id:117,name:"HappyPaws Dog Food Bag — 8kg",sector:"pet",material:"Plastic",type:"Pouch",shape:"pouch",img:"assets/products/pet/product_117_happypaws_dog_food_bag_8kg.png",desc:"Large-format white flat-bottom dog food bag, 8 kg."},
+  {id:118,name:"Pet Food Stand-Up Bag Duo",sector:"pet",material:"Plastic",type:"Pouch",shape:"pouch",img:"assets/products/pet/product_118_pet_food_stand_up_bag_duo.png",desc:"High-gloss metallic stand-up pouches in red and blue."},
+  {id:119,name:"PawJoy Cat Snack Stick Pouch",sector:"pet",material:"Plastic",type:"Pouch",shape:"pouch",img:"assets/products/pet/product_119_pawjoy_cat_snack_stick_pouch.png",desc:"Clear window pouches for cat snack sticks."},
+  {id:120,name:"PetHaven Essentials Pet Gift Box",sector:"pet",material:"Paper / Cardboard",type:"Rigid Box",shape:"box",img:"assets/products/pet/product_120_pethaven_essentials_pet_gift_box.png",desc:"Kraft rigid gift box with holographic belly band."},
+  {id:121,name:"Dog Can Food — Blue & Gold Tin",sector:"pet",material:"Metal",type:"Can",shape:"tin",img:"assets/products/pet/product_121_dog_can_food_blue_gold_tin.png",desc:"Pull-tab aluminium tin with illustrated carton sleeve."},
+  {id:122,name:"Paw Spot Snack Cat Treat Box",sector:"pet",material:"Paper / Cardboard",type:"Folding Carton",shape:"box",img:"assets/products/pet/product_122_paw_spot_snack_cat_treat_box.png",desc:"Two-tone folding carton for cat treats."},
+  {id:123,name:"Dog Waste Bag Box Set",sector:"pet",material:"Paper / Cardboard",type:"Display Box",shape:"box",img:"assets/products/pet/product_123_dog_waste_bag_box_set.png",desc:"Display box and retail box set for dog waste bag rolls."},
+  {id:124,name:"Happy Tails Dog Mailer Box",sector:"pet",material:"Paper / Cardboard",type:"Mailer Box",shape:"box",img:"assets/products/pet/product_124_happy_tails_dog_mailer_box.png",desc:"Full-print corrugated mailer box in forest green."},
+];
+const PRODUCTS = PRODUCTS_RAW;
+
+const T = {
+  en:{
+    nav_products:'Products', nav_quote:'Get a Quote',
+    badge:'Product page coming soon',
+    h1a:'Something', h1em:'beautiful', h1b:'is on its way.',
+    sub:"This product page is being crafted with the same attention to detail we bring to every packaging project. Our team is ready to answer your questions right now.",
+    tag_custom:'Customisable',
+    btn_quote:'Request a quote',
+    btn_back:'← Back to collection',
+    label_response:'Response time', val_response:'2 hours',
+    label_moq:'Min. order', val_moq:'From 200 units',
+    label_contact:'Contact',
+    not_found_h:'Product not found',
+    not_found_p:'This product does not exist or has been removed.',
+    not_found_btn:'Back to collection',
+  },
+  fr:{
+    nav_products:'Produits', nav_quote:'Demander un devis',
+    badge:'Page produit bientôt disponible',
+    h1a:'Quelque chose', h1em:'de beau', h1b:'arrive bientôt.',
+    sub:"Cette page produit est en cours de création avec la même attention aux détails que nous apportons à chaque projet d'emballage. Notre équipe est disponible pour répondre à vos questions dès maintenant.",
+    tag_custom:'Personnalisable',
+    btn_quote:'Demander un devis',
+    btn_back:'← Retour à la collection',
+    label_response:'Délai de réponse', val_response:'2 heures',
+    label_moq:'Qté min.', val_moq:'Dès 200 unités',
+    label_contact:'Contact',
+    not_found_h:'Produit introuvable',
+    not_found_p:"Ce produit n'existe pas ou a été supprimé.",
+    not_found_btn:'Retour à la collection',
+  }
+};
+
+let lang = 'en';
+try { lang = localStorage.getItem('hvLang') || 'en'; } catch(e){}
+const params = new URLSearchParams(window.location.search);
+if (params.get('lang') === 'fr') lang = 'fr';
+
+function setLang(l) {
+  lang = l;
+  try { localStorage.setItem('hvLang', l); } catch(e){}
+  document.getElementById('html-root').setAttribute('lang', l);
+  render();
+}
+
+function render() {
+  const id = parseInt(new URLSearchParams(window.location.search).get('id'));
+  const p = PRODUCTS.find(x => x.id === id);
+  const t = T[lang];
+  document.getElementById('html-root').setAttribute('lang', lang);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t[el.getAttribute('data-i18n')];
+    if (v) el.innerHTML = v;
+  });
+
+  if (!p) {
+    document.getElementById('app').innerHTML = `
+      <div class="not-found">
+        <div>
+          <h2>${t.not_found_h}</h2>
+          <p>${t.not_found_p}</p>
+          <a href="../index.html#products" class="btn-gold">${t.not_found_btn}</a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  document.title = p.name + ' — Harveston';
+  const sector = SECTOR_LABELS[p.sector] || p.sector;
+
+  document.getElementById('app').innerHTML = `
+    <div class="wrap">
+      <div class="left">
+        <div class="eyebrow">Harveston — Premium Packaging</div>
+        <div>
+          <div class="badge"><div class="badge-dot"></div><span class="badge-txt">${t.badge}</span></div>
+          <h1>${t.h1a}<br><em>${t.h1em}</em><br>${t.h1b}</h1>
+          <p class="subtitle">${t.sub}</p>
+          <div class="tags">
+            <span class="tag">${p.material}</span>
+            <span class="tag">${p.type}</span>
+            <span class="tag tag-gold">✦ ${t.tag_custom}</span>
+          </div>
+          <div class="cta-group">
+            <a href="../index.html#quote" class="btn-gold">${t.btn_quote}</a>
+            <a href="../index.html#products" class="btn-outline">${t.btn_back}</a>
+          </div>
+          <div class="divider"></div>
+          <div class="info-row">
+            <div><div class="info-label">${t.label_response}</div><div class="info-value"><strong>${t.val_response}</strong></div></div>
+            <div><div class="info-label">${t.label_moq}</div><div class="info-value">${t.val_moq}</div></div>
+            <div><div class="info-label">${t.label_contact}</div><div class="info-value"><strong>products@</strong>harveston-holdings.com</div></div>
+          </div>
+        </div>
+        <div class="footer-note">© 2025 Harveston Holdings</div>
+      </div>
+      <div class="right">
+        <div class="deco-ring" style="width:500px;height:500px"></div>
+        <div class="deco-ring" style="width:320px;height:320px;border-color:rgba(184,149,106,.1)"></div>
+        <div style="z-index:2;text-align:center">
+          <div class="img-frame">
+            <img src="../${p.img}" alt="${p.name}">
+          </div>
+          <div class="product-label">
+            <div class="product-label-name">${p.name}</div>
+            <div class="product-label-sector">${sector}</div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+render();
+</script>
+</body>
+</html>
