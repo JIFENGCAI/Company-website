@@ -1468,7 +1468,7 @@ function cardHTML(p){
   const pal=PAL[p.sector]||{bg:'#edeadf',c1:'#b8956a',c2:'#8c6a3c'};
   const svg=(SHAPES[p.shape]||svgBox)(pal.c1,pal.c2);
   const visual = p.img ? '<img src="'+p.img+'" alt="'+p.name+'">' : svg;
-  return`<a class="pcell" href="products/${p.id}.html">
+  return`<a class="pcell" href="products/coming-soon.html?id=${p.id}">
     <div class="pstage"><div class="pstage-bg"></div><div class="pvisual">${visual}</div></div>
     <div class="pbody">
       <p class="psector">${SECTOR_LABELS[p.sector]||p.sector}</p>
