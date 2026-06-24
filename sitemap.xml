@@ -20,6 +20,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.harveston-holdings.com/about.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.harveston-holdings.com/sustainable.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.harveston-holdings.com/legal.html</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>yearly</changefreq>
