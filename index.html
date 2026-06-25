@@ -1265,6 +1265,18 @@ async function qSubmit(){
   }
 }
 </script>
+  <style>
+@media(max-width:900px){
+  #businesses{grid-template-columns:1fr !important}
+  #businesses > div:first-child{padding:48px 5vw !important}
+  #businesses > div:last-child{grid-template-columns:1fr !important}
+}
+@media(max-width:600px){
+  #businesses > div:first-child{padding:40px 20px !important}
+  #businesses > div:last-child{grid-template-columns:1fr !important;gap:1px}
+  #businesses a{padding:32px 20px !important}
+}
+</style>
 <section id="businesses" style="display:grid;grid-template-columns:280px 1fr;font-family:'Inter',sans-serif;min-height:480px">
   <div style="background:#1a1814;padding:60px 44px;display:flex;flex-direction:column;justify-content:space-between">
     <div>
