@@ -1663,6 +1663,10 @@ function renderPage(){
   }
 
   g.innerHTML = page.map(cardHTML).join('');
+  if(window.innerWidth <= 600){
+  var cards = g.querySelectorAll('.pcell');
+  cards.forEach(function(card, i){ if(i >= 3) card.style.display='none'; });
+}
 
   // pagination controls
   if(totalPages <= 1){ pagination.innerHTML=''; return; }
