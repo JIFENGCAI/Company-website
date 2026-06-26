@@ -1665,7 +1665,17 @@ function renderPage(){
   g.innerHTML = page.map(cardHTML).join('');
   if(window.innerWidth <= 600){
   var cards = g.querySelectorAll('.pcell');
+  var showMore = document.getElementById('mobile-show-more');
+  if(!showMore){
+    showMore = document.createElement('div');
+    showMore.id = 'mobile-show-more';
+    showMore.style.cssText = 'text-align:center;padding:32px 20px;border-top:1px solid #e2ddd3';
+    showMore.innerHTML = '<button onclick="document.querySelectorAll(\'#grid .pcell\').forEach(function(c){c.style.display=\'flex\'});this.parentNode.style.display=\'none\'" style="font-family:Inter,sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;background:none;border:1px solid #b8956a;color:#b8956a;padding:12px 28px;cursor:pointer">View All Products</button>';
+    g.parentNode.insertBefore(showMore, g.nextSibling);
+  }
   cards.forEach(function(card, i){ if(i >= 3) card.style.display='none'; });
+  if(cards.length > 3) showMore.style.display='block';
+  else showMore.style.display='none';
 }
 
   // pagination controls
